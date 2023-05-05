@@ -65,10 +65,6 @@ I created this website following the requirements given by the recruiter
   ```sh
   npm run start
   ```
-- Format the code with Prettier
-  ```sh
-  npm run format
-  ```
 - Lint the code with ESLint
   ```sh
   npm run lint
