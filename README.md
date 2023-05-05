@@ -9,7 +9,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]()
+[![Product Name Screen Shot][product-screenshot]](https://github.com/huda-addelson/simple-crud-web)
 
 I created this website following the requirements given by the recruiter
 
@@ -40,7 +40,7 @@ I created this website following the requirements given by the recruiter
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/tfkhdyt/web-portfolio.git
+   git clone https://github.com/huda-addelson/simple-crud-web.git
    ```
 2. Install NPM packages
    ```sh
