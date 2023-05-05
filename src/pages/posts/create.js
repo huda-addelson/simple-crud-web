@@ -6,6 +6,8 @@ import {
   Box,
   Container,
   Flex,
+  FormControl,
+  FormErrorMessage,
   Heading,
   Spacer,
   Textarea,
@@ -62,25 +64,35 @@ export default function CreatePost() {
       <Container maxW='8xl' py='10'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Flex maxW='xl' direction='column' gap='10'>
-            <UserInput
-              text='Title'
-              register={register('title', {
-                required: 'Title input is required',
-              })}
-              placeholder='Enter Title'
-            />
-            <Flex direction='column' gap='2'>
-              <Heading size='md'>Content</Heading>
-              <Textarea
-                placeholder='Enter Content'
-                size='sm'
-                name='content'
-                h='150'
-                {...register('body', {
-                  required: 'Content input is required',
+            <FormControl isInvalid={errors.title}>
+              <UserInput
+                text='Title'
+                register={register('title', {
+                  required: 'Title input is required',
                 })}
+                placeholder='Enter Title'
               />
-            </Flex>
+              {errors.title && (
+                <FormErrorMessage>{errors.title.message}</FormErrorMessage>
+              )}
+            </FormControl>
+            <FormControl isInvalid={errors.body}>
+              <Flex direction='column' gap='2'>
+                <Heading size='md'>Content</Heading>
+                <Textarea
+                  placeholder='Enter Content'
+                  size='sm'
+                  name='content'
+                  h='150'
+                  {...register('body', {
+                    required: 'Content input is required',
+                  })}
+                />
+                {errors.body && (
+                  <FormErrorMessage>{errors.body.message}</FormErrorMessage>
+                )}
+              </Flex>
+            </FormControl>
             <ButtonCard
               text='Create Post'
               type='submit'
