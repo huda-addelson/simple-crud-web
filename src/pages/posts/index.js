@@ -14,6 +14,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { MdCreateNewFolder } from 'react-icons/md';
 import Link from 'next/link';
+import Loading from '@/components/Loading';
 
 export default function ListPosts() {
   const { data, isLoading } = useQuery({
@@ -37,7 +38,7 @@ export default function ListPosts() {
         </Flex>
       </Box>
       {isLoading ? (
-        <Box></Box>
+        <Loading />
       ) : (
         <Container maxW='8xl' py='10'>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>

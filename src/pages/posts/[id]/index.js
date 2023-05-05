@@ -2,9 +2,10 @@ import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { detailPost } from '@/hooks/posts';
-import { Box, Container, Flex, Heading, Spinner, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import Link from 'next/link';
+import Loading from '@/components/Loading';
 
 export default function DetailPost() {
   const router = useRouter();
@@ -17,24 +18,7 @@ export default function DetailPost() {
   });
 
   if (isLoading) {
-    return (
-      <Flex
-        w='100%'
-        minH='100vh'
-        align='center'
-        justify='center'
-        direction='column'
-        gap='3'>
-        <Spinner
-          thickness='4px'
-          speed='0.65s'
-          emptyColor='gray.200'
-          color='blue.500'
-          size='xl'
-        />
-        <Text>Memuat.. Harap Tunggu</Text>
-      </Flex>
-    );
+    return <Loading />;
   }
 
   return (
